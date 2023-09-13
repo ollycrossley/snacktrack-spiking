@@ -53,11 +53,11 @@ export default function SimpleMap() {
                     }
                 })}
 
-                {/*<AnyReactComponent*/}
-                {/*    lat={51.904512}*/}
-                {/*    lng={-2.1037056}*/}
-                {/*    text="My Marker 4"*/}
-                {/*/>*/}
+                {/*<AnyReactComponent
+                    lat={51.904512}
+                    lng={-2.1037056}
+                    text="My Marker 4"
+                />*/}
 
             </GoogleMapReact>
         </div>
