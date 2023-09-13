@@ -1,0 +1,66 @@
+import React, {useState} from "react";
+import GoogleMapReact from 'google-map-react';
+
+export default function SimpleMap() {
+
+    const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+    const [drivers, setDrivers] = useState([
+        {
+            driver_id: 1,
+            name: "Steve's Tacos",
+            coords: [51.904512, -2.1037056],
+            isActive: true
+        },
+        {
+            driver_id: 2,
+            name: "Jim's Mornings",
+            coords: [51.904700, -2.1037056],
+            isActive: true
+        },
+        {
+            driver_id: 3,
+            name: "Rose's Counters",
+            coords: [51.904588, -2.1037056],
+            isActive: false
+        }
+    ])
+
+    const defaultProps = {
+        center: {
+            lat: 51.904512,
+            lng: -2.1037056
+        },
+        zoom: 11
+    };
+
+    return (
+        // Important! Always set the container height explicitly
+        <div style={{ height: '100vh', width: '100%' }}>
+            <GoogleMapReact
+                bootstrapURLKeys={{ key: "" }}
+                defaultCenter={defaultProps.center}
+                defaultZoom={defaultProps.zoom}
+            >
+
+                {drivers.map(driver => {
+                    if (driver.isActive) {
+                        return <AnyReactComponent
+                            lat={driver.coords[0]}
+                            lng={driver.coords[1]}
+                            text={driver.name}
+                        />
+                    }
+                })}
+
+                {/*<AnyReactComponent*/}
+                {/*    lat={51.904512}*/}
+                {/*    lng={-2.1037056}*/}
+                {/*    text="My Marker 4"*/}
+                {/*/>*/}
+
+            </GoogleMapReact>
+        </div>
+    );
+
+}

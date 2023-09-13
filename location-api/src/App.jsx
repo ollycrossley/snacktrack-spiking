@@ -1,10 +1,13 @@
 import {useEffect, useState} from 'react'
 import './App.css'
+import SimpleMap from "./components/SimpleMap.jsx";
 
 function App() {
 
   const [count, setCount] = useState(0)
   const [myCrd, setMyCrd] = useState({})
+
+
 
   function success(pos) {
     const crd = pos.coords
@@ -49,6 +52,9 @@ function App() {
       <p>Lat: {myCrd.latitude}</p>
       <p>Long: {myCrd.longitude}</p>
       <p>Acc: {myCrd.accuracy}</p>
+
+      <SimpleMap/>
+
     </>
   )
 }
