@@ -1,16 +1,15 @@
-import {useEffect, useState} from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
 import SimpleMap from "./components/SimpleMap.jsx";
 
+//hi
+
 function App() {
-
-  const [count, setCount] = useState(0)
-  const [myCrd, setMyCrd] = useState({})
-
-
+  const [count, setCount] = useState(0);
+  const [myCrd, setMyCrd] = useState({});
 
   function success(pos) {
-    const crd = pos.coords
+    const crd = pos.coords;
     setMyCrd(crd);
     console.log("Your current position is:");
     console.log(`Latitude : ${crd.latitude}`);
@@ -30,21 +29,23 @@ function App() {
 
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.permissions.query({name: "geolocation"}).then(function (result) {
-        console.log(result)
-        if (result.state === "granted") {
-          navigator.geolocation.getCurrentPosition(success, errors, options);
-        } else if (result.state === "prompt") {
-          navigator.geolocation.getCurrentPosition(success, errors, options);
-          console.log("We are in prompt mode!")
-        } else if (result.state === "denied") {
-          // do other things
-        }
-      })
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          console.log(result);
+          if (result.state === "granted") {
+            navigator.geolocation.getCurrentPosition(success, errors, options);
+          } else if (result.state === "prompt") {
+            navigator.geolocation.getCurrentPosition(success, errors, options);
+            console.log("We are in prompt mode!");
+          } else if (result.state === "denied") {
+            // do other things
+          }
+        });
     } else {
-      console.log("Geolocation is not supported by this browser")
+      console.log("Geolocation is not supported by this browser");
     }
-    console.log(navigator)
+    console.log(navigator);
   }, []);
 
   return (
@@ -53,10 +54,9 @@ function App() {
       <p>Long: {myCrd.longitude}</p>
       <p>Acc: {myCrd.accuracy}</p>
 
-      <SimpleMap/>
-
+      <SimpleMap />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
