@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './mystyles.css'
 import "./App.css";
 import SimpleMap from "./components/SimpleMap.jsx";
 
@@ -49,13 +50,13 @@ function App() {
   }, []);
 
   return (
-    <>
+    <section className={"container"}>
       <p>Lat: {myCrd.latitude}</p>
       <p>Long: {myCrd.longitude}</p>
       <p>Acc: {myCrd.accuracy}</p>
 
       <SimpleMap />
-    </>
+    </section>
   );
 }
 
