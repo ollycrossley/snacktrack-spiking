@@ -31,7 +31,7 @@ export default function SimpleMap() {
             lat: 51.904512,
             lng: -2.1037056
         },
-        zoom: 11
+        zoom: 16
     };
 
     return (
@@ -48,7 +48,7 @@ export default function SimpleMap() {
                         return <AnyReactComponent
                             lat={driver.coords[0]}
                             lng={driver.coords[1]}
-                            text={driver.name}
+                            text={<span className={"icon is-size-4"}><i className="fa-solid fa-location-dot" style={{color: "#ff0000"}}></i></span>}
                         />
                     }
                 })}
