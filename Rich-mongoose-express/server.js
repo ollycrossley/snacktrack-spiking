@@ -11,26 +11,26 @@ app.get("/", async (req, res) => {
 
 app.get("/api/drivers", async (req, res) => {
   const allDrivers = await Driver.find();
-  return res.status(200).send({allDrivers});
+  return res.status(200).send({ allDrivers });
 });
 
 app.get("/api/drivers/:id", async (req, res) => {
   const { id } = req.params;
   const driver = await Driver.findById(id);
-  return res.status(200).json(driver);
+  return res.status(200).send(driver);
 });
 
 app.post("/api/drivers", async (req, res) => {
   const newDriver = new Driver({ ...req.body });
   console.log(newDriver);
   const insertedDriver = await newDriver.save();
-  return res.status(201).json(insertedDriver);
+  return res.status(201).send(insertedDriver);
 });
 
 app.delete("/api/drivers/:id", async (req, res) => {
   const { id } = req.params;
   const deletedDriver = await Driver.findByIdAndDelete(id);
-  return res.status(200).json(deletedDriver);
+  return res.status(200).send(deletedDriver);
 });
 
 const drivers = [
@@ -43,7 +43,5 @@ const seedDB = async (data) => {
   await Driver.deleteMany({});
   await Driver.insertMany(data);
 };
-
-
 
 module.exports = { seedDB, app, drivers };

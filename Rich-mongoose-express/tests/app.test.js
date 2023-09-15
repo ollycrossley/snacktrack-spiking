@@ -5,7 +5,6 @@ const testData = require("../data/testData");
 const ENV = process.env.NODE_ENV;
 const pathToCorrectFile = `${__dirname}/../.env.${ENV}`;
 require("dotenv").config({ path: pathToCorrectFile });
-console.log(process.env);
 
 /* Connecting to the database before each test. */
 beforeEach(async () => {
@@ -25,6 +24,7 @@ describe("GET DRIVERS", () => {
       .expect(200)
       .then((response) => {
         const { allDrivers } = response.body;
+        console.log(allDrivers);
         expect(allDrivers.length).toBe(4);
         allDrivers.forEach((driver) => {
           expect(driver).toHaveProperty("name");
