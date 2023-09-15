@@ -1,0 +1,41 @@
+db.<collectionName>.<method>
+
+----
+
+db.createCollection("posts")
+
+----
+
+db.posts.insertOne({})
+
+db.posts.insertMany([{},{},...])
+
+----
+
+db.posts.find()
+
+db.posts.findOne()
+
+----
+
+db.posts.updateOne({}, {})
+
+db.posts.updateMany({}, {})
+
+----
+
+db.posts.deleteOne({})
+
+db.posts.deleteMany({})
+
+----
+
+Query stuff
+
+db.<collectionName>.<method>({property: {<operator>:value}})
+
+----
+
+Aggregation
+
+db.<collectionName>.aggregate([<methods>])
