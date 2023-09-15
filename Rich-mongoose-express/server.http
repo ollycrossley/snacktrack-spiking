@@ -1,0 +1,18 @@
+GET http://localhost:3000/api/drivers
+
+###
+
+POST http://localhost:3000/api/drivers
+Content-Type: application/json
+
+{
+    "name": "Jim",
+    "truckName": "Good Morning"
+}
+
+
+###
+
+GET http://localhost:3000/api/drivers/65046778f2fb1c4038199c2a
+
+
